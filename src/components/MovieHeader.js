@@ -1,16 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
-import { appTitle } from '../actions/movieActions';
+
+
 
 const MovieHeader = (props) => {
     const appTitle = "";
     const displayFavorites = true;
+
+
+
     
     return(<div className="table-title">
         <div className="row">
         <div className="col-sm-6">
-            <h2>{appTitle}</h2>
+            <h2>{props.appTitle}</h2>
         </div>
         <div className="col-sm-6 headerBar">
             <div className="btn btn-sm btn-primary"><span>{ displayFavorites ? "Hide" : "Show"} Favorites</span></div>
@@ -21,5 +25,10 @@ const MovieHeader = (props) => {
     </div>);
 }
 
+const mapStateToProps = (state) => {
+    return ({
+        appTitle:state.appTitle,
+    })
+}
 
-export default connect(null, {appTitle})(MovieHeader);
+export default connect(mapStateToProps)(MovieHeader);
