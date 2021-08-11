@@ -1,5 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
+import { appTitle } from '../actions/movieActions';
 
 const MovieHeader = (props) => {
     const appTitle = "";
@@ -19,4 +21,5 @@ const MovieHeader = (props) => {
     </div>);
 }
 
-export default MovieHeader;
+
+export default connect(null, {appTitle})(MovieHeader);
